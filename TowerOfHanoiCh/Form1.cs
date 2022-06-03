@@ -18,7 +18,7 @@ namespace TowerOfHanoiCh
 
         int _DiskCount = 3;
         int diskHeight = 30;
-        int baseHeight = 20;//20 в высоту
+        int baseHeight = 20;
         public Form1()
         {
             InitializeComponent();
@@ -124,6 +124,7 @@ namespace TowerOfHanoiCh
             //Рисует 3 стержень
             drawPeg(panel1, g, sb, 3, width, topSpacing);
         }
+
         private void setupTower()
         {
             panel1.Paint += delegate
@@ -131,6 +132,7 @@ namespace TowerOfHanoiCh
                 setBase();
             };
         }
+
         private void drawPeg(Panel canvas, Graphics g, SolidBrush sb, int pegNo, int pegWidth, int topSpacing)
         {
             g.FillRectangle(sb, ((int)(canvas.Width / 4) * pegNo) - (pegWidth / 2), topSpacing, pegWidth, canvas.Height - topSpacing);
@@ -139,6 +141,9 @@ namespace TowerOfHanoiCh
         private void DiskCount_ValueChanged(object sender, EventArgs e)
         {
             _DiskCount = (int)DiskCount.Value;
+            resetPanel();
         }
+
+
     }
 }

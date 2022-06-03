@@ -35,6 +35,12 @@
             this.DiskCount = new System.Windows.Forms.NumericUpDown();
             this.lblMoves = new System.Windows.Forms.Label();
             this.listMoves = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DiskCount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,14 +121,74 @@
             this.listMoves.FormattingEnabled = true;
             this.listMoves.Location = new System.Drawing.Point(905, 63);
             this.listMoves.Name = "listMoves";
-            this.listMoves.Size = new System.Drawing.Size(196, 407);
+            this.listMoves.Size = new System.Drawing.Size(196, 433);
             this.listMoves.TabIndex = 13;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(127, 487);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 43);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "A -->> B";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(127, 547);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 43);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "A -->> C";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(364, 547);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(131, 43);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "B -->> C";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(364, 487);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(131, 43);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "B -->> A";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(629, 547);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(131, 43);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "C -->> B";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(629, 487);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(131, 43);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "C -->> A";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1172, 567);
+            this.ClientSize = new System.Drawing.Size(1172, 602);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblMoves);
             this.Controls.Add(this.listMoves);
             this.Controls.Add(this.lblCounter);
@@ -147,6 +213,12 @@
         private System.Windows.Forms.NumericUpDown DiskCount;
         private System.Windows.Forms.Label lblMoves;
         private System.Windows.Forms.ListBox listMoves;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
 
