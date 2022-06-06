@@ -15,13 +15,15 @@ namespace TowerOfHanoiCh
 
         private List<string> moves = new List<string>();
         private List<Disks> TowerDisks = new List<Disks>();
-
+        AnimateView animate = new AnimateView();
         int _DiskCount = 3;
         int diskHeight = 30;
         int baseHeight = 20;
         public Form1()
         {
             InitializeComponent();
+
+            AnimateView.view = panel1;
             resetPanel();
         }
 
@@ -34,10 +36,42 @@ namespace TowerOfHanoiCh
             moves.Clear();
             listMoves.Items.Clear();                            // Очистить список ходов
             int NumberOfDisks = _DiskCount;                     // Объявить количество дисков
-            //solveTower(NumberOfDisks);
+            solveTower(NumberOfDisks);
             listMoves.DataSource = null;
             listMoves.DataSource = moves;                            // Решить башню
             bPlay.Enabled = true;
+        }
+        private void solveTower(int numberOfDisks)
+        {
+            char startPeg = 'A';                                // start tower in output
+            char endPeg = 'C';                                  // end tower in output
+            char tempPeg = 'B';                                 // temporary tower in output
+            //Solve towers using recursive method
+            solveTowers(numberOfDisks, startPeg, endPeg, tempPeg);
+        }
+        private void solveTowers(int n, char startPeg, char endPeg, char tempPeg)
+        {
+            if (n > 0)
+            {
+                solveTowers(n - 1, startPeg, tempPeg, endPeg);
+
+                Disks currentDisk = TowerDisks.Find(x => x.DiskNo == n);
+                currentDisk.peg = endPeg;
+
+                //Animate
+                animate.moveUp(currentDisk.box, 50);
+                if (startPeg < endPeg)//Move Right
+                    animate.moveRight(currentDisk.box, getDiskX(currentDisk));
+                else //move Left
+                    animate.moveLeft(currentDisk.box, getDiskX(currentDisk));
+                animate.moveDown(currentDisk.box, getDiskY(currentDisk));
+
+                //Format line
+                string line = string.Format("Move disk {0} from {1} to {2}", n, startPeg, endPeg);
+                Console.WriteLine(line);
+                moves.Add(line);
+                solveTowers(n - 1, tempPeg, endPeg, startPeg);
+            }
         }
         private void populateDisks()
         {
@@ -108,6 +142,13 @@ namespace TowerOfHanoiCh
             //Установка начального текстового значения для наименьших возможных ходов
             lblCounter.Text = string.Format("Минимальное количество ходов {0}", GetMoveCount(_DiskCount));
 
+        }
+        private int getDiskY(Disks disk)
+        {
+            int Y = 0;
+            int stackNo = TowerDisks.Count(x => x.peg == disk.peg);
+            Y = panel1.Height - baseHeight - (diskHeight * stackNo);
+            return Y;
         }
         private void setBase()
         {
